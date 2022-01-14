@@ -23,7 +23,7 @@ const Home: NextPage<{ content: string }> = (props) => {
               method: "POST",
             })
               .then((res) => {
-                setStatus(res.statusText);
+                setStatus(String(res.status));
               })
               .catch((err) => {
                 setStatus(err.message);
