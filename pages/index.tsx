@@ -22,8 +22,8 @@ const Home: NextPage<{ content: string }> = (props) => {
             fetch("/api/bundle", {
               method: "POST",
             })
-              .then(() => {
-                setStatus("success");
+              .then((res) => {
+                setStatus(res.statusText);
               })
               .catch((err) => {
                 setStatus(err.message);
@@ -32,7 +32,7 @@ const Home: NextPage<{ content: string }> = (props) => {
         >
           Run api endpoint
         </button>
-        {status}
+        Status: {status}
       </div>
     </div>
   );
